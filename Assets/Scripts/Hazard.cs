@@ -6,10 +6,13 @@ using UnityEngine;
 public class Hazard : MonoBehaviour
 {
     private Transform player;
+
+    private Vector3 previousPosition;
      
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        previousPosition = player.transform.position;
     }
 
     // Update is called once per frame
@@ -48,7 +51,7 @@ public class Hazard : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         //respawn
-        player.transform.position = new Vector3(52, -96 , -28); 
+        player.transform.position = previousPosition; 
         player.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
         player.GetComponent<MeshRenderer>().enabled = true;
         playerControls.ArmLeft.enabled = true;

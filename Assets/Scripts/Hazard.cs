@@ -45,6 +45,7 @@ public class Hazard : MonoBehaviour
         playerControls.RightHand.enabled = false;
         playerControls.LeftHand.enabled = false;
         playerControls.cubieFace.enabled = false;
+        playerControls.SpawnParticles();
 
         playerControls.enabled = false;
 

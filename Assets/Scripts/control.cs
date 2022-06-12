@@ -7,6 +7,7 @@ public class control : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] float jumpForce;
+    [SerializeField] ParticleSystem Particles;
 
     public MeshRenderer bodyy;
     public MeshRenderer body;
@@ -45,6 +46,11 @@ public class control : MonoBehaviour
         {
             Jump();
         }
+    }
+
+    public void SpawnParticles()
+    {
+        Particles.Play();
     }
 
     private void Jump()

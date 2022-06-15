@@ -5,8 +5,11 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private int rotationSpeed;
+    private HUDCanvas hudCanvas;
+
     void Start()
     {
+        hudCanvas = GameObject.FindWithTag("HUDCanvas").GetComponent<HUDCanvas>();
         rotationSpeed = 150;
 
     }
@@ -21,6 +24,8 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            hudCanvas.AddCoins();
+
             Destroy(gameObject);
         }
     }

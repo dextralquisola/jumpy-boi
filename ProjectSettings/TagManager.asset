@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - MovingPlatform
+  - HUDCanvas
   layers:
   - Default
   - TransparentFX

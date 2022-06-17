@@ -7,7 +7,7 @@ public class Hazard : MonoBehaviour
 {
     private Transform player;
     private HUDCanvas hudCanvas;
-
+    int temp_counter = 0;
 
     private Vector3 previousPosition;
      
@@ -23,9 +23,13 @@ public class Hazard : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        temp_counter += 1;
+        if (temp_counter == 1)
         {
-            StartCoroutine(PlayerDed());
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                StartCoroutine(PlayerDed());
+            }
         }
     }
         
@@ -54,9 +58,11 @@ public class Hazard : MonoBehaviour
 
         playerControls.enabled = false;
 
+      
         hudCanvas.DeductLife();
-
+        
         yield return new WaitForSeconds(2f);
+        temp_counter = 0;
 
         if (hudCanvas.lifeCount < 1)
         {
